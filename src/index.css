@@ -25,10 +25,12 @@ a, Link {
   font-family: inherit;
   font-weight: 800;
   font-size: 18px; }
+  .menu-links:hover {
+    color: #f2f2f2; }
 
 .heading-cont {
   opacity: 0;
-  animation: 1s fadeIn forwards;
+  animation: 3s fadeIn forwards;
   margin-top: 200px; }
   .heading-cont .heading-main {
     color: #f2f2f2;
@@ -72,6 +74,18 @@ a, Link {
   font-family: inherit;
   color: #f2f2f2;
   font-weight: 600; }
+
+.fail {
+  color: #ff3333;
+  margin-top: 15px;
+  font-family: inherit;
+  font-weight: 500; }
+
+.success {
+  color: #66ff66;
+  margin-top: 15px;
+  font-weight: 500;
+  font-family: inherit; }
 
 .main-container {
   padding: 0 100px;
@@ -122,7 +136,11 @@ a, Link {
   border-radius: 5px;
   outline: none;
   border: 1px solid transparent;
-  padding-left: 50px; }
+  padding-left: 50px;
+  opacity: 0.8;
+  transition: 0.2s ease-in-out; }
+  .button-auth:hover {
+    opacity: 1; }
 
 .btn-container-google {
   width: 150px;

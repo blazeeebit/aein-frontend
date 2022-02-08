@@ -10,11 +10,15 @@
     font-family: inherit;
     font-weight: 800;
     font-size: 18px;
+
+    &:hover{
+        color: $_font_white;
+    }
 }
 
 .heading-cont{
     opacity: 0;
-    animation: 1s fadeIn forwards;
+    animation: 3s fadeIn forwards;
     margin-top: 200px;
     .heading-main{
         color: $_font_white;
@@ -74,4 +78,18 @@
     font-family: inherit;
     color: $_font_white;
     font-weight: 600;
+}
+
+.fail{
+    color: $_light_red;
+    margin-top: 15px;
+    font-family: inherit;
+    font-weight: 500;
+}
+
+.success{
+    color: $_light_green;
+    margin-top: 15px;
+    font-weight: 500;
+    font-family: inherit;
 }

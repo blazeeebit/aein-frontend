@@ -1,0 +1,77 @@
+.logo-cont{
+    font-family: inherit;
+    font-size: 30px;
+    font-weight: bold;
+    color: $_font_white;
+}
+
+.menu-links {
+    color: $_grey;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 18px;
+}
+
+.heading-cont{
+    opacity: 0;
+    animation: 1s fadeIn forwards;
+    margin-top: 200px;
+    .heading-main{
+        color: $_font_white;
+        font-size: 60px;
+        font-weight: 700;
+        margin-bottom: 20px;
+    }
+
+    .sub-heading-main{
+        color: $_dark_grey;
+        margin-bottom: 80px;
+    }
+}
+
+.form-inputs{
+    font-size: 20px;
+    font-family: inherit;
+    color: $_dark_grey;
+    font-weight: 800;
+    transition: 0.2s ease-in-out;
+
+    &::placeholder{
+        color: $_dark_grey;
+        font-family: inherit;
+        font-weight: 800;
+        font-size: 17px;
+    }
+
+    &:focus{
+        border: 1px solid $_dark_grey;
+    }
+}
+
+.mini-input{
+    font-size: 20px;
+    font-family: inherit;
+    color: $_dark_grey;
+    font-weight: 800;
+    transition: 0.2s ease-in-out;
+
+    &::placeholder{
+        color: $_dark_grey;
+        font-family: inherit;
+        font-weight: 800;
+        font-size: 17px;
+    }
+
+    &:focus{
+        border: 1px solid $_dark_grey;
+    }
+}
+
+
+
+.button-auth{
+    font-size: 22px;
+    font-family: inherit;
+    color: $_font_white;
+    font-weight: 600;
+}

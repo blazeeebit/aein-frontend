@@ -7,7 +7,6 @@ import Register from "./views/auth/register";
 import Profile from "./views/profile";
 import Windows from "./views/windows";
 import Dashboard from "./views/dashboard";
-import PrivateRoute from "./components/privateRoutes/privateRoute";
 import { useSelector } from "react-redux";
 
 function App() {

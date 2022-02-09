@@ -224,3 +224,20 @@ const RegisterRegExFunction = (
     return false
   }
 }
+
+
+//visible states
+
+export const VisibleNav = () => {
+    const [visible, setVisible] = useState(false);
+
+    const setVisibleNav = () => {
+        setVisible(true);
+    }
+
+    const setHiddenNav = () => {
+        setVisible(false);
+    }
+
+    return {setVisibleNav, visible, setHiddenNav}
+}

@@ -28,3 +28,36 @@
         opacity: 1;
     }
 }
+
+@keyframes ModalfadeIn {
+    0%{
+        display: none;
+    }
+    100%{
+        background-color: rgba($_bg_light_black, 0.5);
+        display: block;
+    }
+}
+
+@keyframes ModalForm {
+    0%{
+        top: 0%;
+        display: none;
+    }
+    100%{
+        top: 50%;
+        display: block
+    }
+}
+
+@keyframes colorChange {
+    0%{
+        border: 4px solid $_dark_orange;
+    }
+    50%{
+        border: 4px solid $_orange;
+    }
+    100%{
+        border: 4px solid $_dark_orange;
+    }
+}

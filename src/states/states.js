@@ -1,8 +1,9 @@
 import { useState } from 'react'
 import axios from 'axios'
 import { useNavigate } from 'react-router-dom'
-import { useDispatch } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { FetchUser } from '../functions/functions'
+import Modal from '../components/modals/modal'
 
 //Google Login
 
@@ -88,6 +89,7 @@ export const useLoginData = () => {
     }
   }
 
+  
   return { loginData, setLoginData, LoginWithEmailAndPassword, error, success }
 }
 
@@ -240,4 +242,105 @@ export const VisibleNav = () => {
     }
 
     return {setVisibleNav, visible, setHiddenNav}
+}
+
+//user info state 
+
+export const ShowUserInfo = () => {
+
+  const {auth}= useSelector((state) => ({...state}));
+
+  const {profileImage, username} = auth.user;
+
+  const capsUsername = username.charAt(0).toUpperCase() + username.slice(1);
+
+  return {auth, profileImage, capsUsername}
+}
+
+//active link 
+
+export const AddActiveClass = () => {
+  const [activeId, setActiveId] = useState(1);
+  const [active, setActive] = useState([
+    {
+      id: 1,
+      text: 'My Account',
+    },
+    {
+      id: 2,
+      text: 'My Shop'
+    },
+    {
+      id: 3,
+      text: 'My Products'
+    },
+    {
+      id: 4,
+      text: 'Settings'
+    }
+  ])
+
+  const SetActiveClass = (id) => {
+    setActiveId(id);
+    
+  }
+
+  return {active, SetActiveClass, activeId}
+}
+
+export const UseLogout = () => {
+
+  const dispatch = useDispatch()
+  const navigate = useNavigate()
+
+  const Logout = () => {
+    dispatch({
+			type: 'LOGOUT',
+			payload: null
+		});
+		window.localStorage.removeItem('auth');
+    navigate('/login');
+  }
+
+  return {Logout}
+}
+
+export const CustomModal = () => {
+  return <Modal/>
+}
+
+export const ModalState = () => {
+  const [modalState, setModalState] = useState();
+
+  const OpenModal = () => {
+    console.log("modal opened");
+    setModalState(true);
+  }
+
+  const CloseModal = () => {
+    console.log("modal clsoed");
+    setModalState(false);
+  }
+
+  return {OpenModal, CloseModal ,modalState}
+}
+
+export const SetLoader = () => {
+  const [isLoading, setIsLoading] = useState(false);
+  return {isLoading, setIsLoading};
+}
+
+
+export const SubmitStore = () => {
+  const {isLoading, setIsLoading} = SetLoader();
+
+  const createStore = (e) => {
+    e.preventDefault();
+    setIsLoading(true);
+    setTimeout(() => {
+      setIsLoading(false)
+    }, 5000)
+  }
+
+  return {isLoading, createStore};
 }

@@ -13,3 +13,15 @@ export const FetchUser = async () => {
     console.log(error);
   }
 }
+
+export const AvgFunction = (arr) => {
+  const average = arr.reduce((a,b) => a + b, 0) / arr.length;
+  const roundedAvg = Math.round(average*100)/100;
+  return roundedAvg;
+}
+
+export const RoundFunction = (arr) => {
+  const average = arr.reduce((a,b) => a + b, 0) / arr.length;
+  const rounded = Math.round(average);
+  return rounded;
+}

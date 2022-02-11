@@ -64,3 +64,63 @@
 //         width: 20%;
 //     }
 // }
+
+.logout-cont{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 70px;
+    .logout{
+        background-image: linear-gradient(to right bottom, $_red, $_normal_red ,$_light_red);
+        opacity: 0.8;
+        border-radius: 5px;
+        display: flex;
+        align-items: center;
+        padding: 30px;
+        transition: 0.2s ease-in-out;
+        cursor: pointer;
+
+        &:hover{
+            opacity: 1;
+        }
+
+        .logout-btn{
+            text-decoration: none;
+            font-size: 25px;
+            color: $_font_white;
+            font-family: inherit;
+            font-weight: 800;
+        }
+    }
+}
+
+.addShopBtn{
+    background-color:  $_bg_light_black;
+    border-radius: 50%;
+    width: 150px;
+    height: 120px;
+    border: 2px solid transparent;
+    transition: 0.2s ease-in-out;
+
+    &:hover{
+        color: $_orange;
+        transform: scale(1.05);
+        box-shadow:  0rem 0rem 3px 5px rgba(black, .175);
+    }
+}
+
+.createBtn{
+    width: 150px;
+    height: 50px;
+    border-radius: 5px;
+    outline: none;
+    border: none;
+    background-color: $_dark_orange;
+    color: $_font_white;
+    font-family: inherit;
+    font-weight: 600;
+    transition: 0.1s ease-in-out;
+
+    &:hover{
+        background-color: $_orange; 
+    }
+}

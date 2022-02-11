@@ -93,3 +93,144 @@
     font-weight: 500;
     font-family: inherit;
 }
+
+.username{
+    font-family: inherit;
+    font-weight: 700;
+    color:$_font_white;
+    font-size: 20px;
+    margin: 0;
+}
+
+.usertype{
+    font-family: inherit;
+    font-weight: 800;
+    color:$_lighter_grey;
+    margin: 0;
+    font-size: 18px;
+}
+
+.nav-items-heading{
+    font-size: 17px;
+}
+
+.menu-heading{
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: 800;
+    color: $_lighter_grey
+}
+
+.menu-item{
+    font-size: 17px;
+    font-family: inherit;
+    font-weight: 800;
+    color: $_lighter_grey;
+    transition: 0.2s ease-in-out;
+    border-left: 5px solid transparent;
+    padding-left: 20px;
+    cursor: pointer;
+
+    &:hover{
+        color: $_dark_orange;
+        border-left: 5px solid $_dark_orange;
+    }
+
+}
+
+.active{
+    color: $_dark_orange;
+    border-left: 5px solid $_dark_orange;
+}
+
+.mainSecText{
+    color: $_font_white;
+    font-family: inherit;
+    font-weight: bold;
+    font-size: 25px;
+    display: flex;
+    align-items: center;
+}
+
+.cardTitle{
+    font-size: 50px;
+    font-family: inherit;
+    font-weight: 900;
+}
+
+.cardTitleSmaller{
+    font-size: 40px;
+    font-family: inherit;
+    font-weight: 900;
+}
+
+
+.bodyItem{
+     font-family: inherit; 
+}
+
+.type{
+    font-size: 25px;
+    color: $_font_white;
+    font-weight: 800;
+ }
+
+.addShopBtn{
+    font-size: 50px;
+    font-family: inherit;
+    font-weight: 600;
+    text-align: center;
+    color: $_dark_grey;
+}
+
+.subHeadings{
+    color: $_lighter_grey;
+    font-family: inherit;
+    font-weight: 700;
+    margin-bottom: 15px;
+}
+
+.ratingCont{
+    font-size: 15px;
+    font-weight: 600;
+    color: $_font_white;
+    margin-left: 10px;
+}
+
+.noRating{
+    font-size: 15px;
+    font-weight: 500;
+    color: $_font_white;
+}
+
+.productNum{
+    font-size: 20px;
+    font-weight: 900;
+    font-family: inherit;
+    color: $_2_black_grey;
+}
+
+.formHeading{
+    font-family: inherit;
+    font-weight: 900;
+}
+
+.formInput{
+    font-size: 25px;
+    font-family: inherit;
+    font-weight: 700; 
+
+    &::placeholder{
+        color: $_2_black_grey;
+        font-size: 25px;
+        font-family: inherit;
+        font-weight: 700;
+
+      }
+}
+
+.formLabel{
+    font-size: 25px;
+    font-family: inherit;
+    font-weight: 700;
+}

@@ -1,0 +1,215 @@
+.mainDashboardCont{
+    position: relative;
+}
+
+.dashboard-nav{
+    height: 100vh;
+    background-color: $_bg_black;
+    z-index: 1;
+}
+
+.grid-container{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 10% 30% 25%;
+    grid-gap: 10px;
+    padding-top: 40px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.profile-info-cont{
+    display: grid;
+    grid-template-columns: 80px 60%;
+    grid-template-rows: 70px;
+    grid-gap: 30px;
+    align-content: center;
+
+    .img-cont{
+        border-radius: 50%;
+        overflow: hidden;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        animation: colorChange 2s infinite;
+
+        img{
+            width: 100%;
+        }
+    }
+
+    .profile-details{
+        display: grid;
+        grid-template-columns: 100%;
+        grid-template-rows: 35% 35%;
+        align-content: center;
+
+        &-sub{
+            display: flex;
+            align-items: center;
+        }
+    }
+}
+
+.menu-items-cont{
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 13% 13% 13% 13% 13%;
+    align-content: center;
+
+    .cont-items{
+        display: flex;
+        align-items: center;
+    }
+}
+
+.main-section{
+    background-color: $_bg_light_black;
+    display: grid;
+    grid-template-columns: 100%;
+    grid-template-rows: 5% 30% 15% 40%;
+    align-content: center;
+    grid-gap: 10px;
+    padding: 0 60px;
+
+    .mainSecGridItem{
+        .cardCont{
+
+            .shopCardContEmpty{
+                background-color:$_light_dark_grey;
+                width: 400px;
+                border-radius: 20px;
+                min-width: 400px;
+                padding: 0 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+            }
+
+            .shopCardContCreate{
+                width: 400px;
+                border-radius: 20px;
+                min-width: 400px;
+                padding: 0 20px;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 30px;
+                color: $_light_dark_grey;
+                font-weight: 800;
+                font-family: inherit;
+            }
+
+            .shopCardCont{
+                background-image: linear-gradient(to right bottom, $_dark_orange, $_orange);
+                width: 400px;
+                border-radius: 20px;
+                min-width: 400px;
+                display: grid;
+                grid-template-columns: 100%;
+                grid-template-rows: auto 40%;
+                align-content: center;
+                padding: 20px 20px;
+                grid-gap: 10px;
+
+                .body{
+                    display: grid;
+                    grid-template-columns: 100%;
+                    grid-template-rows: auto;
+                    align-content: center;
+                    grid-gap: 10px;
+
+                    .starRating{
+                        height: 20px;
+                        width: auto;
+                    }
+                }
+            }
+        }
+        
+    }
+}
+
+.side-section{
+    background-color: $_bg_black;
+    background-color: $_bg_light_black;
+}
+
+.customModal{
+  background-color: $_bg_black;
+  position: absolute;
+  z-index: 2;
+  height: 100%;
+  background-color: rgba($_bg_light_black, 0);
+  animation: 0.3s ModalfadeIn forwards ease-in-out;
+
+  .modalform{
+      position: absolute;
+      top: 0%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+      border-radius: 15px;
+      overflow: hidden;
+
+      .formImage{
+          overflow: hidden;
+          img{
+            height: 100%;
+          }
+      }
+
+      .formInputCont{
+          padding-left: 100px;
+      }
+
+      .formInput{
+          height: 70px;
+          border: 2px solid transparent;
+          border-radius: 10px;
+          background-color: transparent;
+          padding-left: 30px;
+          transition: 0.3s ease-in-out;
+          border: 5px solid $_2_black_grey; 
+          outline: none;
+
+          &:hover{
+            border: 5px solid $_orange;  
+          }
+
+          &:focus{
+            border: 5px solid $_orange;  
+          }
+      }
+
+      .selectionList{
+          height: 70px;
+          outline: none;
+          border-radius: 10px;
+          border: 5px solid $_2_black_grey;
+          transition: 0.3s ease-in-out;
+          background-color: transparent;
+          color: $_2_black_grey;
+          font-size: 25px;
+          padding-left: 30px;
+          font-family: inherit;
+          font-weight: 600;
+
+          option{
+            font-family: inherit;
+          font-weight: 600;
+            font-size: 25px;
+            color: $_2_black_grey;
+
+          }
+
+          &:hover{
+            border: 5px solid $_orange;  
+          }
+      }
+  }
+}
+
+.enterModal{
+    animation: 0.5s ModalForm forwards ease-in-out;
+
+}

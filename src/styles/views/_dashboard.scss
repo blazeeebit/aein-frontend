@@ -54,7 +54,7 @@
 .menu-items-cont{
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 13% 13% 13% 13% 13%;
+    grid-template-rows: 13% 13% 13% 13% 13% 13%;
     align-content: center;
 
     .cont-items{
@@ -67,8 +67,8 @@
     background-color: $_bg_light_black;
     display: grid;
     grid-template-columns: 100%;
-    grid-template-rows: 5% 30% 15% 40%;
-    align-content: center;
+    grid-template-rows: 5% 30% 20% 40%;
+    align-content: flex-end;
     grid-gap: 10px;
     padding: 0 60px;
 
@@ -128,8 +128,84 @@
         }
         
     }
+
+    .orderSection{
+        border-radius: 15px;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+
+        .orderCardCont{
+            height: 150px;
+
+            .cardCont{
+                width: 250px;
+                height: 95%;
+                min-width: 300px;
+                background-image: linear-gradient(to right bottom,$_bg_light_black, $_black_grey, $_2_black_grey);
+                border-radius: 15px;
+                display: grid;
+                grid-template-columns: 60% 30%;
+                grid-template-rows: 90%;
+                justify-content: center;
+                align-content: center;
+                grid-gap: 10px;
+                padding: 10px 20px;
+                overflow: hidden;
+                box-shadow: inset 2px 3px 5px 1px rgba($_light_dark_grey, 0.3);
+
+                .profileOrder{
+                    width: 100%;
+                    height: 60%;
+                    border-radius: 50%;
+                    overflow: hidden;
+                    box-shadow: 0px 0px 20px 3px rgba(0,0,0,0.3);
+                    z-index: 1;
+                    backdrop-filter: blur(10px);
+
+                    img{
+                        width: 100%;
+                    }
+                }
+
+                .cardInfo{
+                    display: grid;
+                    grid-template-columns: 100%;
+                    grid-template-rows: 30% 60%;
+                    grid-gap: 5px;
+                    align-content: center;
+
+                    .info{
+                    }
+                }
+            }
+        }
+    }
 }
 
+.eachSlide{
+    display: flex;
+    align-items: center;
+    padding: 0 5px;
+    opacity: 0.8;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+
+    &:hover{
+        opacity: 1;
+    }
+
+}
+
+.hoverCard{
+    opacity: 0.7;
+    transition: 0.2s ease-in-out;
+    cursor: pointer;
+
+    &:hover{
+        opacity: 1;
+    }
+}
 .side-section{
     background-color: $_bg_black;
     background-color: $_bg_light_black;
@@ -212,4 +288,81 @@
 .enterModal{
     animation: 0.5s ModalForm forwards ease-in-out;
 
+}
+
+
+.circle{
+    height: 500px;
+    width: 500px;
+    background-image: linear-gradient(to right, $_dark_orange, $_orange);
+    border-radius: 50%;
+    top: 20%;
+    left: 30%;
+    z-index: 0;
+    box-shadow: inset 3px 2px 25px 5px rgba($_light_dark_grey, 0.7);
+}
+
+.productsGridCont{
+    border-top-left-radius: 25px;
+    border-top-right-radius: 25px;
+}
+
+.selectProductStore{
+    height: 60px;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+    cursor: pointer;
+
+    &:hover .overlay{
+        opacity: 0.5;
+    }
+
+    img{
+        width: 100%;
+    }
+}
+
+.redClass{
+    color: $_font_white;
+}
+
+.whiteClass{
+    background-color: $_lighter_grey;
+    transition: 0.2s ease-in-out;
+
+    &:hover{
+        background-color: $_font_white;
+    }
+}
+
+.overlay{
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    background-color: $_bg_black; 
+    opacity: 0.7;
+    top: 0;
+    transition: 0.3s ease-in-out;
+}
+
+.productView{
+    height: 300px;
+    overflow-y: hidden;
+    display: flex;
+    align-items: center;
+
+    .product{
+        width: 400px;
+        min-width: 400px;
+        height: 250px;
+        border-radius: 15px;
+    }
+
+    .productAdd{
+        width: 200px;
+        min-width: 200px;
+        height: 250px;
+        border-radius: 15px;
+    }
 }

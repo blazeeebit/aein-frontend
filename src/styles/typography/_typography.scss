@@ -234,3 +234,71 @@
     font-family: inherit;
     font-weight: 700;
 }
+
+.errorText{
+    font-size: 15px;
+    font-family: inherit;
+    font-weight: 700;
+}
+
+.orderSubHeadings{
+    font-size: 25px;
+    color: $_grey;
+    font-family: inherit;
+    font-weight: 900;
+}
+
+.orderPrice{
+    h2{
+        font-family: inherit;
+        font-weight: 900;
+        color: $_lighter_grey; 
+    }
+}
+
+.orderDateMade{
+    h6{
+        font-family: inherit;
+        font-weight: 400;  
+        font-size: 10px;
+        color: $_dark_grey;
+
+        span{
+            font-weight: 800;  
+        }
+    }
+}
+
+.noOrders{
+    h4{
+        font-family: inherit;
+        font-weight: 700;
+        color: $_light_dark_grey;
+    }
+}
+
+.usernameHeading{
+    color: $_font_white;
+}
+
+.headers{
+    font-size: 16px;
+    font-family: inherit;
+    font-weight: 600;
+    color:$_dark_grey;
+    cursor: pointer;
+    transition: 0.2s ease-in-out;
+}
+
+.activeMenu{
+    color: $_font_white;
+}
+
+.catTitle{
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    font-family: inherit;
+    font-weight: 800;
+    font-size: 25px;
+}

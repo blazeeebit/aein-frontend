@@ -5,6 +5,14 @@ import { useDispatch, useSelector } from 'react-redux'
 import { FetchUser } from '../functions/functions'
 import Modal from '../components/modals/modal'
 
+//active link
+
+import Furn from '../assets/furn.jpg';
+import Cloths from '../assets/clothing.jpg';
+import Rest from '../assets/restaurant.jpg';
+import Shoe from '../assets/shoes.jpg';
+import Tech from '../assets/tech.jpg';
+
 //Google Login
 
 export const useSocialLogin = () => {
@@ -89,7 +97,6 @@ export const useLoginData = () => {
     }
   }
 
-  
   return { loginData, setLoginData, LoginWithEmailAndPassword, error, success }
 }
 
@@ -227,40 +234,36 @@ const RegisterRegExFunction = (
   }
 }
 
-
 //visible states
 
 export const VisibleNav = () => {
-    const [visible, setVisible] = useState(false);
+  const [visible, setVisible] = useState(false)
 
-    const setVisibleNav = () => {
-        setVisible(true);
-    }
+  const setVisibleNav = () => {
+    setVisible(true)
+  }
 
-    const setHiddenNav = () => {
-        setVisible(false);
-    }
+  const setHiddenNav = () => {
+    setVisible(false)
+  }
 
-    return {setVisibleNav, visible, setHiddenNav}
+  return { setVisibleNav, visible, setHiddenNav }
 }
 
-//user info state 
+//user info state
 
 export const ShowUserInfo = () => {
+  const { auth } = useSelector((state) => ({ ...state }))
 
-  const {auth}= useSelector((state) => ({...state}));
+  const { profileImage, username } = auth.user
 
-  const {profileImage, username} = auth.user;
+  const capsUsername = username.charAt(0).toUpperCase() + username.slice(1)
 
-  const capsUsername = username.charAt(0).toUpperCase() + username.slice(1);
-
-  return {auth, profileImage, capsUsername}
+  return { auth, profileImage, capsUsername }
 }
 
-//active link 
-
 export const AddActiveClass = () => {
-  const [activeId, setActiveId] = useState(1);
+  const [activeId, setActiveId] = useState(1)
   const [active, setActive] = useState([
     {
       id: 1,
@@ -268,79 +271,252 @@ export const AddActiveClass = () => {
     },
     {
       id: 2,
-      text: 'My Shop'
+      text: 'Home Page',
     },
     {
       id: 3,
-      text: 'My Products'
+      text: 'My Shop',
     },
     {
       id: 4,
-      text: 'Settings'
+      text: 'My Orders',
+    },
+    {
+      id: 5,
+      text: 'Settings',
+    },
+  ])
+
+  const [activeMenu, setActiveMenu] = useState(1);
+  const [activeItem, setActiveItem] = useState([
+    {
+      _id: 1,
+      text: 'All'
+    },
+    {
+      _id: 2,
+      text: 'Clothing',
+      image: Cloths
+    },
+    {
+      _id: 3,
+      text: 'Shoes',
+      image: Shoe
+    },
+    {
+      _id: 4,
+      text: 'Restaurants',
+      image: Rest
+    },
+    {
+      _id: 5,
+      text: 'Technology',
+      image: Tech
+    },
+    {
+      _id: 6,
+      text: 'Furniture',
+      image: Furn
+    },
+  ])
+
+  const [getProducts, setGetProduct] = useState([
+    {
+      id: 1,
+      name: 'product 1'
+    },
+    {
+      id: 2,
+      name: 'product 3'
+    },
+    {
+      id: 3,
+      name: 'product 3'
+    },
+    {
+      id: 4,
+      name: 'product 4'
+    },
+    {
+      id: 5,
+      name: 'product 5'
+    },
+    {
+      id: 6,
+      name: 'product 6'
+    },
+    {
+      id: 6,
+      name: 'product 6'
     }
   ])
 
-  const SetActiveClass = (id) => {
-    setActiveId(id);
-    
+  const SetActiveClass = (id,setState) => {
+    setState(id);
   }
 
-  return {active, SetActiveClass, activeId}
+
+  return { active, SetActiveClass, activeId, activeItem, activeMenu, setActiveId, setActiveMenu, getProducts }
 }
 
 export const UseLogout = () => {
-
   const dispatch = useDispatch()
   const navigate = useNavigate()
 
   const Logout = () => {
     dispatch({
-			type: 'LOGOUT',
-			payload: null
-		});
-		window.localStorage.removeItem('auth');
-    navigate('/login');
+      type: 'LOGOUT',
+      payload: null,
+    })
+    window.localStorage.removeItem('auth')
+    navigate('/login')
   }
 
-  return {Logout}
+  return { Logout }
 }
 
 export const CustomModal = () => {
-  return <Modal/>
+  return <Modal />
 }
 
 export const ModalState = () => {
-  const [modalState, setModalState] = useState();
+  const [modalState, setModalState] = useState()
 
   const OpenModal = () => {
-    console.log("modal opened");
-    setModalState(true);
+    console.log('modal opened')
+    setModalState(true)
   }
 
   const CloseModal = () => {
-    console.log("modal clsoed");
-    setModalState(false);
+    console.log('modal clsoed')
+    setModalState(false)
   }
 
-  return {OpenModal, CloseModal ,modalState}
+  return { OpenModal, CloseModal, modalState }
 }
 
 export const SetLoader = () => {
-  const [isLoading, setIsLoading] = useState(false);
-  return {isLoading, setIsLoading};
+  const [isLoading, setIsLoading] = useState(false)
+  return { isLoading, setIsLoading }
+}
+
+export const ShowError = () => {
+  const [error, setError] = useState('')
+  return { error, setError }
+}
+
+export const SubmitStore = () => {
+  const { isLoading, setIsLoading } = SetLoader()
+  const { auth } = ShowUserInfo()
+  const [StoreData, setStoreData] = useState({
+    user: auth.user,
+    name: '',
+    storeType: '',
+    ratings: [1, 2, 3, 4, 2, 4, 1, 5, 2, 3, 1],
+  })
+
+  const { error, setError } = ShowError()
+
+  const createStore = async (e) => {
+    e.preventDefault()
+    setIsLoading(true)
+    try {
+      const res = await axios.post(
+        `${process.env.REACT_APP_BACK_END}createstore`,
+        StoreData,
+        {
+          headers: {
+            Authorization: `Bearer ${auth.token}`,
+          },
+        },
+      )
+      setIsLoading(false)
+      setError(res.data)
+      setTimeout(() => {
+        window.location.reload()
+      }, 1000)
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
+  return { isLoading, createStore, StoreData, setStoreData, error }
+}
+
+export const GetStores = () => {
+  const [getStores, setGetStores] = useState([])
+  const { auth } = ShowUserInfo()
+  const [productLoader, setProductLoader] = useState(false)
+  const [errorLoader, setErrorLoader] = useState(false)
+  let array = []
+  let addToarray = []
+  var counter = 0
+
+  const getStore = async () => {
+    setProductLoader(true)
+    try {
+      const res = await axios.get(
+        `${process.env.REACT_APP_BACK_END}getstores`,
+        {
+          headers: {
+            Authorization: `Bearer ${auth.token}`,
+          },
+        },
+      )
+      setTimeout(() => {
+        setProductLoader(false)
+      }, 5000)
+      setGetStores(res.data)
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
+  const deleteStore = async (id, index) => {
+    setErrorLoader(true)
+
+    for (var i = 0; i < getStores.length; i++) {
+      if (i !== index) {
+        array[counter] = getStores[i]
+        counter++
+      }
+    }
+    setGetStores(array)
+    try {
+      const res = axios.delete(
+        `${process.env.REACT_APP_BACK_END}delete_store/${id}`,
+        {
+          headers: {
+            Authorization: `Bearer ${auth.token}`,
+          },
+        },
+      )
+      setErrorLoader(false)
+    } catch (error) {
+      console.log(error.response)
+    }
+  }
+
+
+  return {
+    getStore,
+    getStores,
+    auth,
+    productLoader,
+    deleteStore,
+    errorLoader,
+    addToarray,
+  }
 }
 
 
-export const SubmitStore = () => {
-  const {isLoading, setIsLoading} = SetLoader();
+//getOrders 
 
-  const createStore = (e) => {
-    e.preventDefault();
-    setIsLoading(true);
-    setTimeout(() => {
-      setIsLoading(false)
-    }, 5000)
-  }
+export const GetOrders = () => {
+  const [isLoading, setIsLoading] = useState(true);
 
-  return {isLoading, createStore};
+  setTimeout(() => {
+    setIsLoading(false)
+  }, 5000);
+  return {isLoading}
 }
